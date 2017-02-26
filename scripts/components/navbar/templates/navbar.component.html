@@ -1,0 +1,46 @@
+<!-- <div class="">
+  {{$ctrl.headerTitle}}
+  {{$ctrl.hasSideNav}}
+  {{$ctrl.sideNavTitle}}
+  {{$ctrl.navID}}
+  <div class="" ng-repeat="item in $ctrl.sideNavItems">
+    Side nav has {{item.title}} with ID: {{item.id}}
+  </div>
+</div> -->
+<div class="" ng-controller="NavbarController as vm">
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <h2 flex md-truncate>{{vm.headerTitle}}</h2>
+      <md-button class="md-icon-button" aria-label="More">
+        <!-- <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon> -->
+      </md-button>
+    </div>
+  </md-toolbar>
+  <!-- if side nav is enabled -->
+  <div ng-if="vm.hasSideNav">
+    <section class="container" layout="row" flex>
+      <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="{{vm.navID}}"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">{{vm.sideNavTitle}}</h1>
+        </md-toolbar>
+
+        <md-content layout-padding>
+          <md-list flex>
+            <md-list-item class="md-3-line" ng-repeat="item in vm.sideNavItems" ng-click="null" ui-sref="{{item.view}}">
+              <h3>{{ item.title }}</h3>
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </md-sidenav>
+      <!-- side-nav child content -->
+      <md-content class="side-nav-content">
+        <ui-view></ui-view>
+      </md-content> <!--- side-nav child content ends here -->
+    </section> <!-- side-nav section ends here -->
+  </div> <!-- side-nav parent div ends here -->
+</div>
