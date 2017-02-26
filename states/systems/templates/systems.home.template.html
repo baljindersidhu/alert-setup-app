@@ -25,8 +25,8 @@
                   class="md-primary">
                   <h3 flex>{{ connector.name }}</h3>
                 </md-radio-button>
-                <h4 flex='33' class="padLft-10 padTop-8">{{ connector.name }}</h4>
-                <p flex='33' class="padLft-20 padTop-8">{{ connector.name }}</p>
+                <h4 flex='33' class="padLft-10 padTop-8">{{ connector.type }}</h4>
+                <p flex='33' class="padLft-20 padTop-8">{{ connector.description }}</p>
               </div>
               <!-- divider after each list item except for last item -->
               <md-divider ng-if="$index + 1 != vm.connectors.length"></md-divider>
