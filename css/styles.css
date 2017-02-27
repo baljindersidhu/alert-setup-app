@@ -10,3 +10,5 @@
 .padTop-8{
   padding-top: 8px;
 }
+
+md-sidenav {min-height: -webkit-calc(100vh - 64px); }
